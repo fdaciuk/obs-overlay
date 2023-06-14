@@ -1,14 +1,10 @@
-import { Glow, NoGlow } from '@/ui'
-
 type ChatProps = {
-  glow?: boolean
   width?: number
 }
 
-export function Chat({ glow, width = 395 }: ChatProps) {
-  const Container = !!glow ? Glow : NoGlow
+export function Chat({ width = 395 }: ChatProps) {
   return (
-    <Container>
+    <div>
       <div
         className={`
           bg-zinc-900
@@ -31,6 +27,6 @@ export function Chat({ glow, width = 395 }: ChatProps) {
         >
         </div>
       </div>
-    </Container>
+    </div>
   )
 }

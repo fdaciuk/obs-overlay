@@ -31,7 +31,7 @@ export default function SingleCamWithScreen({ searchParams }: PageProps) {
       <div
         className={`
           relative
-          top-10
+          top-0
           left-5
           flex
           justify-end
