@@ -1,4 +1,4 @@
-import { Layout } from '@/ui'
+import { Chat, Layout } from '@/ui'
 import { Timer } from './timer'
 
 type TimerPageProps = {
@@ -13,10 +13,13 @@ export default function TimerPage({ searchParams }: TimerPageProps) {
   const startTime = getStartTime(searchParams.startHour)
 
   return (
-    <Layout className='flex-col justify-center text-center'>
-      <h1 className='text-7xl mb-10 text-yellow-500'>{searchParams.title}</h1>
-      <p className='text-4xl mb-24'>{searchParams.description}</p>
-      <Timer className='text-[11rem] text-yellow-500' startTime={startTime} />
+    <Layout className='items-center justify-evenly'>
+      <div className='flex-col justify-center text-center w-[1200px]'>
+        <h1 className='text-6xl mb-10 text-yellow-500'>{searchParams.title}</h1>
+        <p className='text-4xl mb-24'>{searchParams.description}</p>
+        <Timer className='text-[10rem] text-yellow-500' startTime={startTime} />
+      </div>
+      <Chat />
     </Layout>
   )
 }
