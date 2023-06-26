@@ -1,4 +1,4 @@
-import { Cam, Screen } from '@/ui'
+import { Cam, Layout } from '@/ui'
 
 type PageProps = {
   searchParams: {
@@ -9,16 +9,7 @@ type PageProps = {
 
 export default function SingleCamWithScreen({ searchParams }: PageProps) {
   return (
-    <main
-      className={`
-        bg-chroma
-        flex
-        flex-col
-        h-[1080px]
-        relative
-        w-[1920px]
-      `}
-    >
+    <Layout className='bg-none bg-chroma relative'>
       <div
         className={`
           absolute
@@ -30,6 +21,6 @@ export default function SingleCamWithScreen({ searchParams }: PageProps) {
       >
         <Cam name={searchParams.cam} size='mini' style='2' />
       </div>
-    </main>
+    </Layout>
   )
 }

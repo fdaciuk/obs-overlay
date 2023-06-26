@@ -1,4 +1,4 @@
-import { Cam, Chat } from '@/ui'
+import { Cam, Chat, Layout } from '@/ui'
 
 type PageProps = {
   searchParams: {
@@ -9,10 +9,10 @@ type PageProps = {
 
 export default function DoubleCam({ searchParams }: PageProps) {
   return (
-    <main className='bg-[url("/bg-overlay.png")] flex justify-evenly items-center w-[1920px] h-[1080px]'>
+    <Layout className='items-center justify-evenly'>
       <Cam name={searchParams.cam1} size='medium' />
       <Cam name={searchParams.cam2} size='medium' />
       <Chat />
-    </main>
+    </Layout>
   )
 }

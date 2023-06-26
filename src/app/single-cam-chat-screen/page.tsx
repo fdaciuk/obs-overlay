@@ -1,4 +1,4 @@
-import { Cam, Chat, Screen } from '@/ui'
+import { Cam, Chat, Layout, Screen } from '@/ui'
 
 type PageProps = {
   searchParams: {
@@ -9,15 +9,7 @@ type PageProps = {
 
 export default function SingleCamWithScreen({ searchParams }: PageProps) {
   return (
-    <main
-      className={`
-        bg-[url("/bg-overlay.png")]
-        flex
-        flex-col
-        h-[1080px]
-        w-[1920px]
-      `}
-    >
+    <Layout className='flex-col'>
       <div
         className={`
           flex
@@ -40,6 +32,6 @@ export default function SingleCamWithScreen({ searchParams }: PageProps) {
       >
         <Cam name={searchParams.cam} size='mini' />
       </div>
-    </main>
+    </Layout>
   )
 }
