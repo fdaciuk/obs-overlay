@@ -26,6 +26,7 @@ export default function TimerPage({ searchParams }: TimerPageProps) {
 
 function getStartTime(startHour: string): string {
   const [receivedHour, receivedMinutes] = startHour.split(':')
+  process.env.TZ = 'America/Sao_Paulo'
   const now = new Date()
   const newDate = new Date(now.getFullYear(), now.getMonth(), now.getDate(), +receivedHour, +receivedMinutes)
 
