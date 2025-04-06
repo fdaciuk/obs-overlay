@@ -31,6 +31,7 @@ export const loader = ({ request }: Route.LoaderArgs) => {
   return {
     pageWidth: resolution === "1080p" ? "1920" : "2560",
     pageHeight: resolution === "1080p" ? "1080" : "1440",
+    resolution,
   }
 }
 
