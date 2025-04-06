@@ -30,3 +30,4 @@ export function Chat({ width = 395 }: ChatProps) {
     </div>
   )
 }
+

@@ -1,25 +1,25 @@
 type CamProps = {
-  name: string
-  size?: 'mini' | 'medium' | 'big'
-  style?: '1' | '2'
+  name?: string
+  size?: "mini" | "medium" | "big"
+  style?: "1" | "2"
 }
 
-export function Cam({ name, style = '1', size = 'big' }: CamProps) {
+export function Cam({ name = "@unknown", style = "1", size = "big" }: CamProps) {
   let finalWidth = 618
   let finalHeight = 347
 
-  if (size === 'big') {
+  if (size === "big") {
     finalWidth = 900
     finalHeight = 500
   }
 
-  if (size === 'mini') {
+  if (size === "mini") {
     finalWidth = 305
     finalHeight = 166
   }
 
-  const textSize = size === 'mini' ? 'text-xl' : 'text-xl'
-  const CamComp = style === '1' ? Cam1 : Cam2
+  const textSize = size === "mini" ? "text-xl" : "text-xl"
+  const CamComp = style === "1" ? Cam1 : Cam2
 
   return (
     <CamComp
@@ -93,3 +93,4 @@ function Cam2({ name, width, height, textSize }: CamInternalProps) {
     </div>
   )
 }
+

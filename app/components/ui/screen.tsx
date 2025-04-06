@@ -11,9 +11,10 @@ type Height = {
 type ScreenProps = Width | Height
 
 export function Screen({ width, height }: ScreenProps) {
+  // FIX: Deixar flexível para 1080p e 1440p
   const ratio = 1920 / 1080
-  let newWidth = Math.floor(typeof width === 'undefined' ? ratio * height : width)
-  let newHeight = Math.floor(typeof height === 'undefined' ? ratio * width : height)
+  let newWidth = Math.floor(typeof width === "undefined" ? ratio * height : width)
+  let newHeight = Math.floor(typeof height === "undefined" ? ratio * width : height)
   return (
     <div
       className={`
@@ -24,3 +25,4 @@ export function Screen({ width, height }: ScreenProps) {
     />
   )
 }
+

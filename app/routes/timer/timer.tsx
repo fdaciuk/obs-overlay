@@ -1,14 +1,12 @@
-'use client'
-
-import { useEffect } from 'react'
-import useTimer from '@fdaciuk/use-timer'
+import { useEffect } from "react"
+import useTimer from "@fdaciuk/use-timer"
 
 type TimerProps = {
   startTime: string
   className?: string
 }
 
-export function Timer({ startTime, className = '' }: TimerProps) {
+export function Timer({ startTime, className = "" }: TimerProps) {
   const { start, minutes, seconds } = useTimer(startTime)
 
   useEffect(() => {
@@ -19,3 +17,4 @@ export function Timer({ startTime, className = '' }: TimerProps) {
     <div className={className}>{minutes}:{seconds}</div>
   )
 }
+
