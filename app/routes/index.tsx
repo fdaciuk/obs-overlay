@@ -4,14 +4,14 @@ export default function Index() {
   return (
     <div className="w-full h-full p-5">
       <ul className="list-disc grid gap-3">
-        <li><Link to={makeLink("/single-cam", { cam: "@fdaciuk" })}>Single Cam</Link></li>
+        <li><Link prefetch="intent" to={makeLink("/single-cam", { cam: "@fdaciuk" })}>Single Cam</Link></li>
 
         {/* <li> */}
         {/*   Single Cam + Chat + Screen */}
         {/*   <ul className="list-inside list-disc"> */}
         {/*     {miniCamPositions.map(c => ( */}
         {/*       <li key={c.cam_position}> */}
-        {/*         <Link to={makeLink("/single-cam-chat-screen", { cam: "@fdaciuk", cam_position: c.cam_position })}> */}
+        {/*         <Link prefetch="intent" to={makeLink("/single-cam-chat-screen", { cam: "@fdaciuk", cam_position: c.cam_position })}> */}
         {/*           {c.title} */}
         {/*         </Link> */}
         {/*       </li> */}
@@ -24,7 +24,7 @@ export default function Index() {
           <ul className="list-inside list-disc">
             {miniCamPositions.map(c => (
               <li>
-                <Link to={makeLink("/single-cam-screen", { cam: "@fdaciuk", cam_position: c.cam_position })}>
+                <Link prefetch="intent" to={makeLink("/single-cam-screen", { cam: "@fdaciuk", cam_position: c.cam_position })}>
                   {c.title}
                 </Link>
               </li>
@@ -33,7 +33,7 @@ export default function Index() {
         </li>
 
         {/* <li> */}
-        {/*   <Link to={makeLink("/double-cam", { */}
+        {/*   <Link prefetch="intent" to={makeLink("/double-cam", { */}
         {/*     cam1: "@fdaciuk", */}
         {/*     cam2: "@vmarcosp", */}
         {/*   })}> */}
@@ -41,7 +41,7 @@ export default function Index() {
         {/*   </Link> */}
         {/* </li> */}
 
-        <li><Link to="/timer/setup">Timer</Link></li>
+        <li><Link prefetch="intent" to="/timer/setup">Timer</Link></li>
       </ul>
     </div>
   )
