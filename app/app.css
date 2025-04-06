@@ -3,8 +3,10 @@
 @theme {
   --font-sans: "Sora", ui-sans-serif, system-ui, sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+
   --page-width: 1920px;
   --page-height: 1080px;
+  --color-chroma: #18FF1D;
 }
 
 html,

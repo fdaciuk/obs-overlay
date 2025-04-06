@@ -23,7 +23,7 @@ export default function Index() {
           Single Cam + Screen
           <ul className="list-inside list-disc">
             {miniCamPositions.map(c => (
-              <li>
+              <li key={c.cam_position}>
                 <Link prefetch="render" to={makeLink("/single-cam-screen", { cam: "@fdaciuk", cam_position: c.cam_position })}>
                   {c.title}
                 </Link>
