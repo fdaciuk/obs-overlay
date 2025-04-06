@@ -4,21 +4,25 @@ type CamProps = {
   style?: "1" | "2"
 }
 
+const proportion = {
+  mini: {
+    h: 0.159,
+    v: 0.154,
+  },
+  medium: {
+    h: 0.322,
+    v: 0.321,
+  },
+  big: {
+    h: 0.469,
+    v: 0.463,
+  },
+} as const
+
 export function Cam({ name = "@unknown", style = "1", size = "big" }: CamProps) {
-  let finalWidth = 618
-  let finalHeight = 347
+  const finalWidth = `calc(var(--page-width) * ${proportion[size].h})`
+  const finalHeight = `calc(var(--page-height) * ${proportion[size].v})`
 
-  if (size === "big") {
-    finalWidth = 900
-    finalHeight = 500
-  }
-
-  if (size === "mini") {
-    finalWidth = 305
-    finalHeight = 166
-  }
-
-  const textSize = size === "mini" ? "text-xl" : "text-xl"
   const CamComp = style === "1" ? Cam1 : Cam2
 
   return (
@@ -26,15 +30,15 @@ export function Cam({ name = "@unknown", style = "1", size = "big" }: CamProps) 
       name={name}
       width={finalWidth}
       height={finalHeight}
-      textSize={textSize}
+      textSize="text-xl"
     />
   )
 }
 
 type CamInternalProps = {
   name: string
-  width: number
-  height: number
+  width: string
+  height: string
   textSize: string
 }
 
@@ -58,8 +62,6 @@ function Cam1({ name, width, height, textSize }: CamInternalProps) {
 }
 
 function Cam2({ name, width, height, textSize }: CamInternalProps) {
-  height = height + 30
-
   return (
     <div
       className={`
@@ -73,7 +75,7 @@ function Cam2({ name, width, height, textSize }: CamInternalProps) {
         relative
         pb-6
       `}
-      style={{ width, height }}
+      style={{ width, height: `calc(${height} + 30px)` }}
     >
       <div
         className={`
@@ -84,7 +86,7 @@ function Cam2({ name, width, height, textSize }: CamInternalProps) {
           top-0
           left-0
         `}
-        style={{ width: width - 4, height: height - 38 }}
+        style={{ width: `calc(${width} - 4px)`, height: `calc(${height} - 10px)` }}
       >
         <p className={`absolute -bottom-8 w-full text-center text-gray-800 ${textSize}`}>
           {name}

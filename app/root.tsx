@@ -5,6 +5,7 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
+  useLoaderData,
 } from "react-router"
 
 import type { Route } from "./+types/root"
@@ -23,7 +24,19 @@ export const links: Route.LinksFunction = () => [
   },
 ]
 
+export const loader = ({ request }: Route.LoaderArgs) => {
+  const url = new URL(request.url)
+  const resolution = url.searchParams.get("resolution")?.toString() ?? "1080p"
+
+  return {
+    pageWidth: resolution === "1080p" ? "1920" : "2560",
+    pageHeight: resolution === "1080p" ? "1080" : "1440",
+  }
+}
+
 export function Layout({ children }: React.PropsWithChildren) {
+  const { pageWidth, pageHeight } = useLoaderData<typeof loader>()
+
   return (
     <html lang="en">
       <head>
@@ -31,8 +44,16 @@ export function Layout({ children }: React.PropsWithChildren) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <Meta />
         <Links />
+        <style>
+          {`
+          :root {
+          --page-width: ${pageWidth}px;
+          --page-height: ${pageHeight}px;
+          } 
+          `}
+        </style>
       </head>
-      <body className="overflow-hidden h-dvh">
+      <body className={`overflow-hidden h-dvh`}>
         {children}
         <ScrollRestoration />
         <Scripts />

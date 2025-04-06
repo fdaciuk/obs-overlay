@@ -6,14 +6,14 @@ export const loader = ({ request }: Route.LoaderArgs) => {
   return {
     searchParams: {
       cam: url.searchParams.get("cam")?.toString(),
-      cam_position: url.searchParams.get("cam_position")?.toString() ?? "top_left"
+      cam_position: url.searchParams.get("cam_position")?.toString() ?? "top_left",
     }
   }
 }
 
 export default function SingleCamWithScreen({ loaderData }: Route.ComponentProps) {
   const { searchParams } = loaderData
-
+  
   return (
     <div className="flex w-full h-full bg-none bg-chroma relative">
       <div
